@@ -1,32 +1,37 @@
-﻿using System;
-using Android;
-using Android.App;
+﻿using Android.App;
 using Android.OS;
 using Android.Runtime;
-using Android.Support.Design.Widget;
-using Android.Support.V4.View;
-using Android.Support.V4.Widget;
-using Android.Support.V7.App;
 using Android.Views;
+using AndroidX.AppCompat.App;
+using AndroidX.AppCompat.Widget;
+using AndroidX.Core.View;
+using AndroidX.DrawerLayout.Widget;
+using Google.Android.Material.FloatingActionButton;
+using Google.Android.Material.Navigation;
+using Google.Android.Material.Snackbar;
+using System;
 
 namespace SpoRT.App
 {
     [Activity(Label = "@string/app_name", Theme = "@style/AppTheme.NoActionBar", MainLauncher = true)]
     public class MainActivity : AppCompatActivity, NavigationView.IOnNavigationItemSelectedListener
     {
+        private ActionBarDrawerToggle toggle = null;
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             SetContentView(Resource.Layout.activity_main);
-            Android.Support.V7.Widget.Toolbar toolbar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.toolbar);
+            Toolbar toolbar = FindViewById<Toolbar>(Resource.Id.toolbar);
             SetSupportActionBar(toolbar);
 
             FloatingActionButton fab = FindViewById<FloatingActionButton>(Resource.Id.fab);
             fab.Click += FabOnClick;
 
             DrawerLayout drawer = FindViewById<DrawerLayout>(Resource.Id.drawer_layout);
-            ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, Resource.String.navigation_drawer_open, Resource.String.navigation_drawer_close);
+            //ActionBarDrawerToggle
+            toggle = new ActionBarDrawerToggle(this, drawer, toolbar, Resource.String.navigation_drawer_open, Resource.String.navigation_drawer_close);
             drawer.AddDrawerListener(toggle);
             toggle.SyncState();
 
@@ -37,7 +42,7 @@ namespace SpoRT.App
         public override void OnBackPressed()
         {
             DrawerLayout drawer = FindViewById<DrawerLayout>(Resource.Id.drawer_layout);
-            if(drawer.IsDrawerOpen(GravityCompat.Start))
+            if (drawer.IsDrawerOpen(GravityCompat.Start))
             {
                 drawer.CloseDrawer(GravityCompat.Start);
             }
@@ -66,13 +71,14 @@ namespace SpoRT.App
 
         private void FabOnClick(object sender, EventArgs eventArgs)
         {
-            View view = (View) sender;
+            View view = (View)sender;
             Snackbar.Make(view, "Replace with your own action", Snackbar.LengthLong)
                 .SetAction("Action", (Android.Views.View.IOnClickListener)null).Show();
         }
 
         public bool OnNavigationItemSelected(IMenuItem item)
         {
+            AndroidX.Fragment.App.Fragment fragment = null;
             int id = item.ItemId;
 
             if (id == Resource.Id.nav_camera)
@@ -81,29 +87,40 @@ namespace SpoRT.App
             }
             else if (id == Resource.Id.nav_gallery)
             {
-
+                fragment = SportsListFragment.NewInstance();
             }
             else if (id == Resource.Id.nav_slideshow)
             {
-
             }
             else if (id == Resource.Id.nav_manage)
             {
-
             }
             else if (id == Resource.Id.nav_share)
             {
-
             }
             else if (id == Resource.Id.nav_send)
             {
-
             }
 
             DrawerLayout drawer = FindViewById<DrawerLayout>(Resource.Id.drawer_layout);
             drawer.CloseDrawer(GravityCompat.Start);
+           
+            // set back arrow button
+            //toggle.DrawerIndicatorEnabled = false;
+            //toggle.SetHomeAsUpIndicator(Resource.Drawable.abc_ic_ab_back_material);
+            
+            
+            if (fragment == null)
+            {
+                return true;
+            }
+
+            SupportFragmentManager.BeginTransaction()
+                .Replace(Resource.Id.content_frame, fragment)
+                .Commit();
             return true;
         }
+
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
         {
             Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
@@ -112,4 +129,3 @@ namespace SpoRT.App
         }
     }
 }
-

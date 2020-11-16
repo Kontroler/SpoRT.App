@@ -5,6 +5,10 @@ VisualStudioVersion = 16.0.30711.63
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpoRT.App", "SpoRT.App\SpoRT.App.csproj", "{EB1A25A6-BB2A-4088-B6B9-3EB6B835BD48}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpoRT.Persistence", "SpoRT.Persistence\SpoRT.Persistence.csproj", "{2C9EE949-418D-42D5-9185-B7775586DF07}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpoRT.Domain", "SpoRT.Domain\SpoRT.Domain.csproj", "{F4FD65E1-0A86-4443-8A1E-DF0FDA47B102}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,6 +21,14 @@ Global
 		{EB1A25A6-BB2A-4088-B6B9-3EB6B835BD48}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EB1A25A6-BB2A-4088-B6B9-3EB6B835BD48}.Release|Any CPU.Build.0 = Release|Any CPU
 		{EB1A25A6-BB2A-4088-B6B9-3EB6B835BD48}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{2C9EE949-418D-42D5-9185-B7775586DF07}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C9EE949-418D-42D5-9185-B7775586DF07}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C9EE949-418D-42D5-9185-B7775586DF07}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C9EE949-418D-42D5-9185-B7775586DF07}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F4FD65E1-0A86-4443-8A1E-DF0FDA47B102}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4FD65E1-0A86-4443-8A1E-DF0FDA47B102}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4FD65E1-0A86-4443-8A1E-DF0FDA47B102}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4FD65E1-0A86-4443-8A1E-DF0FDA47B102}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
