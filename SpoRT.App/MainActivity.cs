@@ -9,23 +9,26 @@ using AndroidX.DrawerLayout.Widget;
 using Google.Android.Material.FloatingActionButton;
 using Google.Android.Material.Navigation;
 using Google.Android.Material.Snackbar;
+using MvvmCross.Platforms.Android.Views;
+using SpoRT.App.ViewModels;
 using System;
+using System.Threading.Tasks;
 
 namespace SpoRT.App
 {
     [Activity(Label = "@string/app_name", Theme = "@style/AppTheme.NoActionBar", MainLauncher = true)]
-    public class MainActivity : AppCompatActivity, NavigationView.IOnNavigationItemSelectedListener
+    public class MainActivity : MvxActivity<MainViewModel>, NavigationView.IOnNavigationItemSelectedListener
     {
         private ActionBarDrawerToggle toggle = null;
 
-        protected override void OnCreate(Bundle savedInstanceState)
+        protected override void OnCreate(Bundle bundle)
         {
-            base.OnCreate(savedInstanceState);
-            Xamarin.Essentials.Platform.Init(this, savedInstanceState);
+            base.OnCreate(bundle);
+            Xamarin.Essentials.Platform.Init(this, bundle);
             SetContentView(Resource.Layout.activity_main);
-            Toolbar toolbar = FindViewById<Toolbar>(Resource.Id.toolbar);
+            Toolbar toolbar = FindViewById<Toolbar>(Resource.Id.toolbar);            
             SetSupportActionBar(toolbar);
-
+            
             FloatingActionButton fab = FindViewById<FloatingActionButton>(Resource.Id.fab);
             fab.Click += FabOnClick;
 
@@ -87,7 +90,8 @@ namespace SpoRT.App
             }
             else if (id == Resource.Id.nav_gallery)
             {
-                fragment = SportsListFragment.NewInstance();
+                //fragment = SportsListFragment.NewInstance();
+                ViewModel.GoTo().Execute();
             }
             else if (id == Resource.Id.nav_slideshow)
             {
