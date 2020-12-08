@@ -14,6 +14,12 @@ namespace SpoRT.Persistence.Managers
             _context = context;
         }
 
+        public async Task Save(SportEntity sport)
+        {
+            _context.Sports.Add(sport);
+            await _context.SaveChangesAsync();
+        }
+
         public async Task<IEnumerable<SportEntity>> GetAll()
         {
             return await _context.Sports.ToListAsync();

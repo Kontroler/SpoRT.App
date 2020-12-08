@@ -6,6 +6,7 @@ namespace SpoRT.Persistence.Managers
 {
     public interface ISportPersistenceManager
     {
+        Task Save(SportEntity sport);
         Task<IEnumerable<SportEntity>> GetAll();
     }
 }

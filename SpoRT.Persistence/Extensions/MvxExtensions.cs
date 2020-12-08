@@ -7,7 +7,8 @@ namespace SpoRT.Persistence.Extensions
     {
         public static void RegisterPerstistence(this IMvxIoCProvider mvxIocProvider)
         {
-            mvxIocProvider.RegisterType<ApplicationDbContext>();
+            mvxIocProvider.LazyConstructAndRegisterSingleton<ApplicationDbContext, ApplicationDbContext>();
+            //mvxIocProvider.RegisterType<ApplicationDbContext>();
             mvxIocProvider.RegisterType<ISportPersistenceManager, SportPersistenceManager>();
         }
     }

@@ -19,6 +19,7 @@ namespace SpoRT.App
     [Activity(Label = "@string/app_name", Theme = "@style/AppTheme.NoActionBar", MainLauncher = true)]
     public class MainActivity : MvxActivity<MainViewModel>, NavigationView.IOnNavigationItemSelectedListener
     {
+
         private ActionBarDrawerToggle toggle = null;
 
         protected override void OnCreate(Bundle bundle)
@@ -29,8 +30,8 @@ namespace SpoRT.App
             Toolbar toolbar = FindViewById<Toolbar>(Resource.Id.toolbar);            
             SetSupportActionBar(toolbar);
             
-            FloatingActionButton fab = FindViewById<FloatingActionButton>(Resource.Id.fab);
-            fab.Click += FabOnClick;
+            //FloatingActionButton fab = FindViewById<FloatingActionButton>(Resource.Id.fab);
+            //fab.Click += FabOnClick;
 
             DrawerLayout drawer = FindViewById<DrawerLayout>(Resource.Id.drawer_layout);
             //ActionBarDrawerToggle
@@ -91,7 +92,7 @@ namespace SpoRT.App
             else if (id == Resource.Id.nav_gallery)
             {
                 //fragment = SportsListFragment.NewInstance();
-                ViewModel.GoTo().Execute();
+                ViewModel.NavigateToSportListCommand().Execute();
             }
             else if (id == Resource.Id.nav_slideshow)
             {

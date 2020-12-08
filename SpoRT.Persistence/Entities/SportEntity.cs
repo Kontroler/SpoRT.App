@@ -1,8 +1,7 @@
 ﻿namespace SpoRT.Persistence.Entities
 {
-    public class SportEntity
+    public class SportEntity : BaseEntity
     {
-        public long Id { get; set; }
         public string Name { get; set; }
     }
 }

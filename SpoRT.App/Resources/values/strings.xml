@@ -1,6 +1,15 @@
 <resources>
-    <string name="app_name">SpoRT.App</string>
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="action_settings">Settings</string>
+	<string name="app_name">SpoRT.App</string>
+	<string name="navigation_drawer_open">Open navigation drawer</string>
+	<string name="navigation_drawer_close">Close navigation drawer</string>
+	<string name="action_settings">Settings</string>
+
+	<!-- Layouts - START -->
+
+	<!-- fragment_new_sport - START-->
+	<string name="fragment_sport_name">Sport name</string>
+	<string name="fragment_sport_save">Save</string>
+	<!-- fragment_new_sport - END-->
+
+	<!-- Layouts - END -->
 </resources>

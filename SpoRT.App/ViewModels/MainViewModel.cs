@@ -14,7 +14,11 @@ namespace SpoRT.App.ViewModels
             _navigationService = navigationService;
         }
 
-        public MvxAsyncCommand GoTo() => new MvxAsyncCommand(async () => await _navigationService.Navigate<SportsListViewModel>());
+        public MvxAsyncCommand NavigateToSportListCommand() => new MvxAsyncCommand(OnNavigateToSportListCommand);
 
+        private async Task OnNavigateToSportListCommand()
+        {
+            await _navigationService.Navigate<SportsListViewModel>();
+        }
     }
 }

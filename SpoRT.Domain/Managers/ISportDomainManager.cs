@@ -6,6 +6,8 @@ namespace SpoRT.Domain.Managers
 {
     public interface ISportDomainManager
     {
-        //Task<IEnumerable<Sport>> GetAll();
+        Task Save(Sport sport);
+        Task<IEnumerable<Sport>> GetAll();
+        
     }
 }

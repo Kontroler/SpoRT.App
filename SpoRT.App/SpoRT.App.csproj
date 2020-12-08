@@ -67,6 +67,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.cs" />
+    <Compile Include="Fragments\NewSportFragment.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -74,6 +75,8 @@
     <Compile Include="Setup.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\SportsListViewModel.cs" />
+    <Compile Include="ViewModels\ItemSportViewModel.cs" />
+    <Compile Include="ViewModels\NewSportViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -136,10 +139,19 @@
     <PackageReference Include="MvvmCross">
       <Version>7.1.2</Version>
     </PackageReference>
+    <PackageReference Include="MvvmCross.DroidX.Material">
+      <Version>7.1.2</Version>
+    </PackageReference>
+    <PackageReference Include="MvvmCross.DroidX.RecyclerView">
+      <Version>7.1.2</Version>
+    </PackageReference>
     <PackageReference Include="Xamarin.Android.Support.Constraint.Layout">
       <Version>2.0.1</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.AndroidX.AsyncLayoutInflater">
+      <Version>1.0.0.5</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.AndroidX.CardView">
       <Version>1.0.0.5</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.AndroidX.ConstraintLayout">
@@ -173,6 +185,16 @@
       <Project>{f4fd65e1-0a86-4443-8a1e-df0fda47b102}</Project>
       <Name>SpoRT.Domain</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\item_sport.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\fragment_new_sport.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

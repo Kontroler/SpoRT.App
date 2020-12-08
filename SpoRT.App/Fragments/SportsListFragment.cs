@@ -1,7 +1,6 @@
 ﻿using Android.OS;
 using Android.Runtime;
 using Android.Views;
-using Google.Android.Material.TextView;
 using MvvmCross.Platforms.Android.Binding.BindingContext;
 using MvvmCross.Platforms.Android.Presenters.Attributes;
 using MvvmCross.Platforms.Android.Views.Fragments;
@@ -21,9 +20,15 @@ namespace SpoRT.App
 
         public override void OnViewCreated(View view, Bundle savedInstanceState)
         {
-            base.OnViewCreated(view, savedInstanceState);           
+            base.OnViewCreated(view, savedInstanceState);
+
+            //var recyclerView = view.FindViewById<MvxRecyclerView>(Resource.Id.recycler_view);
+            //var set = this.CreateBindingSet();
+            //set.Bind(recyclerView).For(r => r.ItemsSource).To(async vm => await vm.GetAll());
+            //set.Apply();
         }
 
         public static SportsListFragment NewInstance() => new SportsListFragment();
     }
+
 }
